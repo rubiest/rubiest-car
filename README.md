@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+system mcm onpay.my
+- pendaftaran agen
+- pendaftaran dropship
+- pengurusan staff
+- produk
+- notifikasi email
+- notifikasi sms
+- kod kupon
+- prospek
+- pembayaran di atas talian
+- pembayaran secara manual
+- statistik / report
+- iklan
+- hebahan email
+- hebahan sms
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+url: https://demo.onpay.my/admin/dropship-agents
+url: https://onpay.my/
