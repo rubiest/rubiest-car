@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role: [:staff, :agent, :dropship]
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessor :login
