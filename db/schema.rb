@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170824153445) do
     t.decimal "price_daily", precision: 8, scale: 2
     t.decimal "price_weekly", precision: 8, scale: 2
     t.decimal "price_monthly", precision: 8, scale: 2
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

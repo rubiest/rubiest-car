@@ -1,5 +1,5 @@
 jQuery ->
-  # $('#car_model_id').parent().parent().hide()
+  # $('#car_model_id').parent().hide()
   models = $('#car_model_id').html()
   $('#car_brand_id').change ->
     brand = $('#car_brand_id :selected').text()
@@ -7,7 +7,7 @@ jQuery ->
     options = $(models).filter("optgroup[label='#{escaped_brand}']").html()
     if options
       $('#car_model_id').html(options)
-      $('#car_model_id').parent().parent().show()
+      $('#car_model_id').parent().show()
     else
       $('#car_model_id').empty()
-      $('#car_model_id').parent().parent().hide()
+      $('#car_model_id').parent().hide()

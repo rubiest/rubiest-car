@@ -8,7 +8,7 @@ class CreateCars < ActiveRecord::Migration[5.1]
       t.decimal :price_daily, :precision => 8, :scale => 2
       t.decimal :price_weekly, :precision => 8, :scale => 2
       t.decimal :price_monthly, :precision => 8, :scale => 2
-      t.integer :status
+      t.integer :status, null: false, default: 0
       t.text :note
 
       t.timestamps
