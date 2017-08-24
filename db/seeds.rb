@@ -38,3 +38,13 @@ end
 ].each do |brand, name|
   Model.find_or_create_by(brand_id: brand, name: name)
 end
+
+[ "GPS",
+  "Car Baby Seat",
+  "iPod Car Chargers & MP3 Accessories",
+  "Full of Fuel",
+  "Touch n Go Card",
+  "Smart Tag"
+].each do |name|
+  Accessory.find_or_create_by(name: name)
+end

@@ -9,6 +9,7 @@
       <th scope="row">#</th>
       <th style="width:35em">Car Model</th>
       <th style="width:10em">Price Daily</th>
+      <th style="width:10em">Accessories</th>
       <th style="width:10em">Status</th>
       <th>Action</th>
     </tr>
@@ -19,12 +20,13 @@
       <th scope="row"><%= index + 1 %></th>
       <td><%= car.brand_model %></td>
       <td><%= number_to_currency(car.price_daily, unit: "RM") %></td>
+      <td><%= car.accessories.exists? ? car.accessories.map { |accessory| accessory.name }.join(', ').html_safe : "N/A" %></td>
       <td><%= check_status(car) %></td>
       <td>
         <div class="btn-group btn-group-sm" role="group">
-          <button type="button" class="btn btn-primary">Primary</button>
-          <button type="button" class="btn btn-warning">Warning</button>
-          <button type="button" class="btn btn-danger">Danger</button>
+          <button type="button" class="btn btn-primary">Show</button>
+          <button type="button" class="btn btn-warning">Edit</button>
+          <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </td>
     </tr>

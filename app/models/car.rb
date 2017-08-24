@@ -4,6 +4,8 @@ class Car < ApplicationRecord
   belongs_to :company_profile
   belongs_to :brand
   belongs_to :model
+  has_many :accessorizations
+  has_many :accessories, through: :accessorizations
 
   default_scope -> { order('cars.created_at DESC') }
 
