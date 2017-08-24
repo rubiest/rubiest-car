@@ -18,13 +18,13 @@
     <% @cars.each_with_index do |car, index| %>
     <tr>
       <th scope="row"><%= index + 1 %></th>
-      <td><%= car.brand_model %></td>
+      <td><%= car.brand_model %> <small><%= link_to "view car profile", car_car_profiles_path(car) %></small></td>
       <td><%= number_to_currency(car.price_daily, unit: "RM") %></td>
       <td><%= car.accessories.exists? ? car.accessories.map { |accessory| accessory.name }.join(', ').html_safe : "N/A" %></td>
       <td><%= check_status(car) %></td>
       <td>
         <div class="btn-group btn-group-sm" role="group">
-          <button type="button" class="btn btn-primary">Show</button>
+          <%= link_to "Show", car_path(car), class: "btn btn-primary" %>
           <button type="button" class="btn btn-warning">Edit</button>
           <button type="button" class="btn btn-danger">Delete</button>
         </div>

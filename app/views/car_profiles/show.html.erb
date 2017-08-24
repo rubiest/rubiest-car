@@ -1,0 +1,5 @@
+<h1>ROAD TAX EXPIRED DATE: <%= @car_profile.road_tax_expired_date %></h1>
+
+<%= link_to "edit", edit_car_car_profiles_path(@car_profile.car_id) %> |
+<%= link_to "back to car listing", cars_path %> |
+<%= link_to "go to car details", car_path(@car_profile.car_id) %>

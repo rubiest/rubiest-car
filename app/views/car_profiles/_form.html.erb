@@ -1,0 +1,26 @@
+<%= form_with(model: car_profile, url: car_car_profiles_path(@car_profile.car_id), local: true) do |form| %>
+  <% if car_profile.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong><%= pluralize(car_profile.errors.count, "error") %> prohibited this car_profile from being saved:</strong>
+
+      <ul>
+      <% car_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <strong><%= form.label :road_tax_expired_date, class: "form-control-label" %></strong>
+    <%= form.date_field :road_tax_expired_date, id: :car_profile_road_tax_expired_date, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Update Car Profile", class: "btn btn-primary" %>
+    <%= link_to 'Back', car_car_profiles_path(@car_profile.car_id), class: "btn btn-default" %>
+  </div>
+<% end %>
