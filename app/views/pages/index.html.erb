@@ -1,12 +1,14 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-
-<% if user_signed_in? %>
-  <%= link_to destroy_user_session_path, method: :delete do %>
-    <span class="glyphicon glyphicon-log-out small" aria-hidden="true"></span> Logout
+<div class="row">
+  <% @company_profiles.each do |cp| %>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= cp.c_name %></h4>
+        <h6 class="card-subtitle mb-2 text-muted"><%= cp.pic_fullname.blank? ? cp.user.username : cp.pic_fullname %></h6>
+        <p class="card-text"><%= cp.c_city.blank? || cp.c_state.blank? ? "Everywhere" : cp.location %></p>
+        <%= link_to "Check Garage", garage_show_path(cp), class: "card-link" %>
+      </div>
+    </div>
+  </div>
   <% end %>
-<% else %>
-  <%= link_to login_path, class: "btn btn-default btn-sm" do %>
-    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign In
-  <% end %>
-<% end %>
+</div>

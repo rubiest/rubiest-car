@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get "/dashboard" => 'dashboards#index'
-
   root 'pages#index'
+  get "/dashboard" => 'dashboards#index'
+  get "/garage/:id" => 'pages#garage', as: "garage_show"
   resource :company_profiles, except: [:index, :new, :destroy]
 
   devise_for :users, controllers: {
