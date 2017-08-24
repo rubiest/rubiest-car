@@ -1,0 +1,87 @@
+<%= form_with(model: company_profile, url: company_profiles_path, local: true) do |form| %>
+  <% if company_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company_profile.errors.count, "error") %> prohibited this company_profile from being saved:</h2>
+
+      <ul>
+      <% company_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pic_fullname %>
+    <%= form.text_field :pic_fullname, id: :company_profile_pic_fullname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pic_phone_number %>
+    <%= form.text_field :pic_phone_number, id: :company_profile_pic_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pic_position %>
+    <%= form.text_field :pic_position, id: :company_profile_pic_position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pic_email %>
+    <%= form.text_field :pic_email, id: :company_profile_pic_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_name %>
+    <%= form.text_field :c_name, id: :company_profile_c_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_reg_number %>
+    <%= form.text_field :c_reg_number, id: :company_profile_c_reg_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_address %>
+    <%= form.text_area :c_address, id: :company_profile_c_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_city %>
+    <%= form.text_field :c_city, id: :company_profile_c_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_postcode %>
+    <%= form.text_field :c_postcode, id: :company_profile_c_postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_state %>
+    <%= form.text_field :c_state, id: :company_profile_c_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_country %>
+    <%= form.text_field :c_country, id: :company_profile_c_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_phone_number %>
+    <%= form.text_field :c_phone_number, id: :company_profile_c_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_website %>
+    <%= form.text_field :c_website, id: :company_profile_c_website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c_email %>
+    <%= form.text_field :c_email, id: :company_profile_c_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

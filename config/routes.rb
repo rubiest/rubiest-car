@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "/dashboard" => 'dashboards#index'
 
   root 'pages#index'
+  resource :company_profiles, except: [:index, :new, :destroy]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170824065845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.index ["c_name"], name: "index_company_profiles_on_c_name", unique: true
+    t.index ["c_reg_number"], name: "index_company_profiles_on_c_reg_number", unique: true
     t.index ["slug"], name: "index_company_profiles_on_slug", unique: true
     t.index ["user_id"], name: "index_company_profiles_on_user_id"
   end
