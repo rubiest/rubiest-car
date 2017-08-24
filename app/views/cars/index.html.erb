@@ -1,7 +1,7 @@
 <% @cars.each do |car| %>
-  <%= car.brand %>
+  <%= car.brand.name %> <%= car.model.name %>
 <% end %>
 
 <hr>
 
-<%= link_to "Add New Car", new_car_path, class: "btn btn-primary" %>
+<%= link_to "Add New Car", new_car_path, class: "btn btn-primary", data: { turbolinks: false } %>

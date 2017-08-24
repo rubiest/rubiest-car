@@ -10,15 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824104348) do
+ActiveRecord::Schema.define(version: 20170824153445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cars", force: :cascade do |t|
     t.bigint "company_profile_id"
-    t.string "brand"
-    t.string "model"
+    t.bigint "brand_id"
+    t.bigint "model_id"
     t.decimal "price_hourly", precision: 8, scale: 2
     t.decimal "price_daily", precision: 8, scale: 2
     t.decimal "price_weekly", precision: 8, scale: 2
@@ -27,7 +33,9 @@ ActiveRecord::Schema.define(version: 20170824104348) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_cars_on_brand_id"
     t.index ["company_profile_id"], name: "index_cars_on_company_profile_id"
+    t.index ["model_id"], name: "index_cars_on_model_id"
   end
 
   create_table "company_profiles", force: :cascade do |t|
@@ -67,6 +75,14 @@ ActiveRecord::Schema.define(version: 20170824104348) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "models", force: :cascade do |t|
+    t.bigint "brand_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_models_on_brand_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
@@ -88,6 +104,9 @@ ActiveRecord::Schema.define(version: 20170824104348) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "cars", "brands"
   add_foreign_key "cars", "company_profiles"
+  add_foreign_key "cars", "models"
   add_foreign_key "company_profiles", "users"
+  add_foreign_key "models", "brands"
 end
