@@ -3,6 +3,7 @@ class CompanyProfile < ApplicationRecord
   friendly_id :c_name, use: [:slugged, :finders, :history]
 
   belongs_to :user
+  has_many :cars
 
   default_scope -> { order('company_profiles.created_at DESC') }
 
