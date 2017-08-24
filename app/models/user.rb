@@ -4,6 +4,10 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  has_one :company_profile, dependent: :destroy
+
+  before_create :build_default_company_profile
+
   validates :username,
     presence: true,
     uniqueness: {
@@ -31,4 +35,11 @@ class User < ApplicationRecord
       end
     end
   end
+
+  private
+
+    def build_default_company_profile
+      build_company_profile
+      true
+    end
 end
