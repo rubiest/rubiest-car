@@ -4,10 +4,12 @@ class CompanyProfile < ApplicationRecord
 
   belongs_to :user
 
+  validates :c_name, presence: true, uniqueness: true, on: :update
+  validates :c_reg_number, presence: true, uniqueness: true, on: :update
   validates :c_postcode, length: {
     maximum: 5,
     too_long: "%{count} characters is the maximum allowed"
-  }, numericality: true
+  }, numericality: true, on: :update
 
   def should_generate_new_friendly_id?
     c_name_changed?

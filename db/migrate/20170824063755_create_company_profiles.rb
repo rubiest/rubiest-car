@@ -19,5 +19,7 @@ class CreateCompanyProfiles < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :company_profiles, :c_name, unique: true
+    add_index :company_profiles, :c_reg_number, unique: true
   end
 end
