@@ -1,7 +1,6 @@
 class CarProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_car_profile, only: [:show, :edit, :update]
-  before_action :set_car, only: [:edit, :update]
 
   def show
   end
@@ -25,13 +24,17 @@ class CarProfilesController < ApplicationController
 
   private
 
-    def set_car
-      @car = Car.find params[:car_id]
+    def set_car_profile
+      @company_profile = CompanyProfile.find_by_user_id current_user
+      @car = @company_profile.cars.find params[:car_id]
+      @car_profile = @car.car_profile
+      rescue ActiveRecord::RecordNotFound
+        redirect_to(cars_url, :notice => 'Record not found')
     end
 
-
-    def set_car_profile
-      @car_profile = CarProfile.find_by_car_id params[:car_id]
+    def set_company_profile
+      @company_profile = CompanyProfile.find_by_user_id current_user
+      @car = @company_profile.cars.find params[:car_id]
     end
 
     def car_profile_params
