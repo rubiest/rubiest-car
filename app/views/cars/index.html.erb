@@ -1,0 +1,7 @@
+<% @cars.each do |car| %>
+  <%= car.brand %>
+<% end %>
+
+<hr>
+
+<%= link_to "Add New Car", new_car_path, class: "btn btn-primary" %>

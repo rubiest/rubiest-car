@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/dashboard" => 'dashboards#index'
   get "/garage/:id" => 'pages#garage', as: "garage_show"
   resource :company_profiles, except: [:index, :new, :destroy]
+  resources :cars
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
