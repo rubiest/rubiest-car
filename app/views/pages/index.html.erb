@@ -1,2 +1,12 @@
 <h1>Pages#index</h1>
 <p>Find me in app/views/pages/index.html.erb</p>
+
+<% if user_signed_in? %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <span class="glyphicon glyphicon-log-out small" aria-hidden="true"></span> Logout
+  <% end %>
+<% else %>
+  <%= link_to login_path, class: "btn btn-default btn-sm" do %>
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign In
+  <% end %>
+<% end %>
