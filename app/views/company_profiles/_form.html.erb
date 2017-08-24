@@ -1,7 +1,10 @@
 <%= form_with(model: company_profile, url: company_profiles_path, local: true) do |form| %>
   <% if company_profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company_profile.errors.count, "error") %> prohibited this company_profile from being saved:</h2>
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong><%= pluralize(company_profile.errors.count, "error") %> prohibited this company_profile from being saved:</strong>
 
       <ul>
       <% company_profile.errors.full_messages.each do |message| %>
@@ -11,77 +14,83 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :pic_fullname %>
-    <%= form.text_field :pic_fullname, id: :company_profile_pic_fullname %>
-  </div>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-inverse">
+      <tr>
+        <th colspan="2" class="text-center">
+          EDIT COMPANY DETAILS
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="thead-inverse">
+        <th scope="row" colspan="2">Person in Charge</th>
+      </tr>
+      <tr>
+        <th scope="row">Name</th>
+        <td><%= form.text_field :pic_fullname, id: :company_profile_pic_fullname, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Phone Number</th>
+        <td><%= form.text_field :pic_phone_number, id: :company_profile_pic_phone_number, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Position</th>
+        <td><%= form.text_field :pic_position, id: :company_profile_pic_position, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">E-Mail</th>
+        <td><%= form.text_field :pic_email, id: :company_profile_pic_email, class: "form-control" %></td>
+      </tr>
+      <tr class="thead-inverse">
+        <th scope="row" colspan="2">Company Details</th>
+      </tr>
+      <tr>
+        <th scope="row">Name</th>
+        <td><%= form.text_field :c_name, id: :company_profile_c_name, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Registration Number</th>
+        <td><%= form.text_field :c_reg_number, id: :company_profile_c_reg_number, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Address</th>
+        <td><%= form.text_area :c_address, id: :company_profile_c_address, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">City</th>
+        <td><%= form.text_field :c_city, id: :company_profile_c_city, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Postcode</th>
+        <td><%= form.text_field :c_postcode, id: :company_profile_c_postcode, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">State</th>
+        <td><%= form.text_field :c_state, id: :company_profile_c_state, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Country</th>
+        <td><%= form.text_field :c_country, id: :company_profile_c_country, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Phone Number</th>
+        <td><%= form.text_field :c_phone_number, id: :company_profile_c_phone_number, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">Website</th>
+        <td><%= form.text_field :c_website, id: :company_profile_c_website, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th scope="row">E-Mail</th>
+        <td><%= form.text_field :c_email, id: :company_profile_c_email, class: "form-control" %></td>
+      </tr>
+    </tbody>
 
-  <div class="field">
-    <%= form.label :pic_phone_number %>
-    <%= form.text_field :pic_phone_number, id: :company_profile_pic_phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pic_position %>
-    <%= form.text_field :pic_position, id: :company_profile_pic_position %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pic_email %>
-    <%= form.text_field :pic_email, id: :company_profile_pic_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_name %>
-    <%= form.text_field :c_name, id: :company_profile_c_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_reg_number %>
-    <%= form.text_field :c_reg_number, id: :company_profile_c_reg_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_address %>
-    <%= form.text_area :c_address, id: :company_profile_c_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_city %>
-    <%= form.text_field :c_city, id: :company_profile_c_city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_postcode %>
-    <%= form.text_field :c_postcode, id: :company_profile_c_postcode %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_state %>
-    <%= form.text_field :c_state, id: :company_profile_c_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_country %>
-    <%= form.text_field :c_country, id: :company_profile_c_country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_phone_number %>
-    <%= form.text_field :c_phone_number, id: :company_profile_c_phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_website %>
-    <%= form.text_field :c_website, id: :company_profile_c_website %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c_email %>
-    <%= form.text_field :c_email, id: :company_profile_c_email %>
-  </div>
+  </table>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update Company Profile", class: "btn btn-primary" %>
+    <%= link_to 'Back', company_profiles_path, class: "btn btn-default" %>
   </div>
 <% end %>

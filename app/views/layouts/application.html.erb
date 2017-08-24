@@ -9,7 +9,10 @@
   </head>
 
   <body>
-    <%= render 'alert' %>
-    <%= yield %>
+    <%= render 'header' %>
+    <div class="container">
+      <%= render 'alert' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
