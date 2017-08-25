@@ -38,6 +38,6 @@ class CarProfilesController < ApplicationController
     end
 
     def car_profile_params
-      params.require(:car_profile).permit(:car_id, :road_tax_expired_date)
+      params.require(:car_profile).permit(:car_id, :road_tax_expired_date, :plate_number, :chasis_number, :last_service)
     end
 end

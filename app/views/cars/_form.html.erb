@@ -24,25 +24,37 @@
   <div class="col">
     <div class="form-group">
       <strong><%= f.label :price_hourly, class: "form-control-label" %></strong>
-      <%= f.number_field :price_hourly, class: "form-control" %>
+      <div class="input-group">
+        <span class="input-group-addon">RM</span>
+        <%= f.number_field :price_hourly, class: "form-control" %>
+      </div>
     </div>
   </div>
   <div class="col">
     <div class="form-group">
       <strong><%= f.label :price_daily, class: "form-control-label" %></strong>
-      <%= f.number_field :price_daily, class: "form-control" %>
+      <div class="input-group">
+        <span class="input-group-addon">RM</span>
+        <%= f.number_field :price_daily, class: "form-control" %>
+      </div>
     </div>
   </div>
   <div class="col">
     <div class="form-group">
       <strong><%= f.label :price_weekly, class: "form-control-label" %></strong>
-      <%= f.number_field :price_weekly, class: "form-control" %>
+      <div class="input-group">
+        <span class="input-group-addon">RM</span>
+        <%= f.number_field :price_weekly, class: "form-control" %>
+      </div>
     </div>
   </div>
   <div class="col">
     <div class="form-group">
       <strong><%= f.label :price_monthly, class: "form-control-label" %></strong>
-      <%= f.number_field :price_monthly, class: "form-control" %>
+      <div class="input-group">
+        <span class="input-group-addon">RM</span>
+        <%= f.number_field :price_monthly, class: "form-control" %>
+      </div>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-car-details" role="tabpanel" aria-labelledby="nav-car-details-tab">
 
-    <div class="card border-secondary mb-3">
+    <div class="card">
       <h4 class="card-header">
         <%= @car.brand_model %> <%= check_status(@car) %>
       </h4>
@@ -58,13 +58,62 @@
       </div>
     </div>
 
-    <%= link_to "Back", cars_path, class: "btn btn-link pull-right" %>
-    <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary pull-right" %>
+    <hr>
+
+    <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary" %>
+    <%= link_to "Back", cars_path, class: "btn btn-link" %>
 
   </div>
   <div class="tab-pane fade" id="nav-car-profile" role="tabpanel" aria-labelledby="nav-car-profile-tab">
 
-    <h1>ROAD TAX EXPIRED DATE: <%= @car_profile.road_tax_expired_date %></h1>
+    <div class="card">
+      <h4 class="card-header">
+        Car Profile for <%= @car_profile.car.brand_model %>
+      </h4>
+      <div class="card-body">
+        <p class="card-text">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Road Tax Expired Date</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= @car_profile.road_tax_expired_date.strftime("%d %B %Y") %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Plate Number</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= @car_profile.plate_number %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Chasis Number</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= @car_profile.chasis_number %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Last Service</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= @car_profile.last_service.strftime("%d %B %Y") %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+
+    <hr>
+
+    <%= link_to "Edit this car profile", edit_car_car_profiles_path(@car_profile.car_id), class: "btn btn-primary" %>
+    <%= link_to "Back to car listing", cars_path, class: "btn btn-link" %>
 
   </div>
 </div>
