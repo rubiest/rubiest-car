@@ -1,0 +1,55 @@
+<div class="card border-secondary mb-3">
+  <h4 class="card-header">
+    <%= @car.brand_model %> <%= check_status(@car) %>
+  </h4>
+  <div class="card-body">
+    <p class="card-text">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Price Per Hour</h5>
+            <div class="card-body">
+              <p class="card-text"><%= number_to_currency(@car.price_hourly, unit: "RM") %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Price Per Day</h5>
+            <div class="card-body">
+              <p class="card-text"><%= number_to_currency(@car.price_daily, unit: "RM") %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Price Per Week</h5>
+            <div class="card-body">
+              <p class="card-text"><%= number_to_currency(@car.price_weekly, unit: "RM") %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Price Per Month</h5>
+            <div class="card-body">
+              <p class="card-text"><%= number_to_currency(@car.price_monthly, unit: "RM") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p>Accessories:</p>
+      <p><%= @car.accessories.exists? ? @car.accessories.map { |accessory| "\<i class='fa fa-check-square fa-lg'\>\<\/i\> " + accessory.name }.join(' ').html_safe : "N/A" %></p>
+      <hr>
+      <p>Note:</p>
+      <p><%= @car.note.nil? ? "NA" : @car.note %></p>
+    </p>
+    <p class="card-text">
+      <small class="text-muted">Added on <%= @car.created_at.strftime("%d %B %Y") %></small>
+    </p>
+  </div>
+</div>
+
+<%= link_to "Back", cars_path, class: "btn btn-link pull-right" %>
+<%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary pull-right" %>

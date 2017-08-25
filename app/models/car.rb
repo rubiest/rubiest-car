@@ -16,6 +16,10 @@ class Car < ApplicationRecord
     "#{self.brand.name} #{self.model.name}"
   end
 
+  def available?
+    self.status == "available"
+  end
+
   private
 
     def build_default_car_profile

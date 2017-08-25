@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company_profile, only: [:index, :new, :create]
+  before_action :set_car, only: [:show, :edit, :update]
 
   def index
     @cars = Car.where(company_profile: @company_profile)
@@ -21,22 +22,36 @@ class CarsController < ApplicationController
   end
 
   def show
-    #code
   end
 
   def edit
-    #code
   end
 
   def update
-    #code
+    respond_to do |format|
+      if @car.update car_params
+        format.html { redirect_to car_path(@car), notice: 'Car was successfully updated.' }
+        format.json { render :show, status: :ok, location: @car }
+      else
+        format.html { render :edit }
+        format.json { render json: @car.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
-    #code
+    if @car.destroy
+      redirect_to cars_path, notice: 'Car has been deleted!'
+    else
+      render 'index'
+    end
   end
 
   private
+
+    def set_car
+      @car = Car.find params[:id]
+    end
 
     def set_company_profile
       @company_profile = CompanyProfile.find_by_user_id current_user
