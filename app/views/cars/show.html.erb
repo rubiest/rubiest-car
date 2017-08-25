@@ -1,55 +1,70 @@
-<div class="card border-secondary mb-3">
-  <h4 class="card-header">
-    <%= @car.brand_model %> <%= check_status(@car) %>
-  </h4>
-  <div class="card-body">
-    <p class="card-text">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <h5 class="card-header">Price Per Hour</h5>
-            <div class="card-body">
-              <p class="card-text"><%= number_to_currency(@car.price_hourly, unit: "RM") %></p>
+<nav class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-car-details" role="tab" aria-controls="nav-home" aria-expanded="true">Car Details</a>
+  <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-car-profile" role="tab" aria-controls="nav-profile">Car Profile</a>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-car-details" role="tabpanel" aria-labelledby="nav-car-details-tab">
+
+    <div class="card border-secondary mb-3">
+      <h4 class="card-header">
+        <%= @car.brand_model %> <%= check_status(@car) %>
+      </h4>
+      <div class="card-body">
+        <p class="card-text">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Price Per Hour</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= number_to_currency(@car.price_hourly, unit: "RM") %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Price Per Day</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= number_to_currency(@car.price_daily, unit: "RM") %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Price Per Week</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= number_to_currency(@car.price_weekly, unit: "RM") %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <h5 class="card-header">Price Per Month</h5>
+                <div class="card-body">
+                  <p class="card-text"><%= number_to_currency(@car.price_monthly, unit: "RM") %></p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <h5 class="card-header">Price Per Day</h5>
-            <div class="card-body">
-              <p class="card-text"><%= number_to_currency(@car.price_daily, unit: "RM") %></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <h5 class="card-header">Price Per Week</h5>
-            <div class="card-body">
-              <p class="card-text"><%= number_to_currency(@car.price_weekly, unit: "RM") %></p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <h5 class="card-header">Price Per Month</h5>
-            <div class="card-body">
-              <p class="card-text"><%= number_to_currency(@car.price_monthly, unit: "RM") %></p>
-            </div>
-          </div>
-        </div>
+          <hr>
+          <p>Accessories:</p>
+          <p><%= @car.accessories.exists? ? @car.accessories.map { |accessory| "\<i class='fa fa-check-square fa-lg'\>\<\/i\> " + accessory.name }.join(' ').html_safe : "N/A" %></p>
+          <hr>
+          <p>Note:</p>
+          <p><%= @car.note.nil? ? "NA" : @car.note %></p>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Added on <%= @car.created_at.strftime("%d %B %Y") %></small>
+        </p>
       </div>
-      <hr>
-      <p>Accessories:</p>
-      <p><%= @car.accessories.exists? ? @car.accessories.map { |accessory| "\<i class='fa fa-check-square fa-lg'\>\<\/i\> " + accessory.name }.join(' ').html_safe : "N/A" %></p>
-      <hr>
-      <p>Note:</p>
-      <p><%= @car.note.nil? ? "NA" : @car.note %></p>
-    </p>
-    <p class="card-text">
-      <small class="text-muted">Added on <%= @car.created_at.strftime("%d %B %Y") %></small>
-    </p>
+    </div>
+
+    <%= link_to "Back", cars_path, class: "btn btn-link pull-right" %>
+    <%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary pull-right" %>
+
+  </div>
+  <div class="tab-pane fade" id="nav-car-profile" role="tabpanel" aria-labelledby="nav-car-profile-tab">
+
+    <h1>ROAD TAX EXPIRED DATE: <%= @car_profile.road_tax_expired_date %></h1>
+
   </div>
 </div>
-
-<%= link_to "Back", cars_path, class: "btn btn-link pull-right" %>
-<%= link_to "Edit this car", edit_car_path(@car), class: "btn btn-primary pull-right" %>
