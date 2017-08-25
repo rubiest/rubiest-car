@@ -36,6 +36,10 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog'
+gem 'fastimage'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

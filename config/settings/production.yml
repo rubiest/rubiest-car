@@ -1,1 +1,3 @@
-app_url: 
+app_url:
+s3:
+  bucket: rubiest-prod
