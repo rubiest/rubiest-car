@@ -1,6 +1,7 @@
 class CompanyProfile < ApplicationRecord
   extend FriendlyId
   friendly_id :c_name, use: [:slugged, :finders, :history]
+  mount_uploader :c_profile_picture, CompanyProfilePictureUploader
 
   belongs_to :user
   has_many :cars

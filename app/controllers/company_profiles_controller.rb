@@ -27,6 +27,6 @@ class CompanyProfilesController < ApplicationController
     end
 
     def company_profile_params
-      params.require(:company_profile).permit(:user_id, :pic_fullname, :pic_phone_number, :pic_position, :pic_email, :c_name, :c_reg_number, :c_address, :c_city, :c_postcode, :c_state, :c_country, :c_phone_number, :c_website, :c_email)
+      params.require(:company_profile).permit(:user_id, :c_profile_picture, :c_profile_picture_cache, :pic_fullname, :pic_phone_number, :pic_position, :pic_email, :c_name, :c_reg_number, :c_address, :c_city, :c_postcode, :c_state, :c_country, :c_phone_number, :c_website, :c_email)
     end
 end
