@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company_profile, only: [:index, :new, :create]
-  before_action :set_car, only: [:edit, :update]
+  before_action :set_car, only: [:edit, :update, :destroy]
   before_action :set_car_profile, only: [:show]
 
   def index

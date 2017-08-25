@@ -1,5 +1,5 @@
 class Car < ApplicationRecord
-  enum status: [:available, :in_use, :not_available]
+  enum status: [:available, :in_use, :not_available, :pending]
 
   belongs_to :company_profile
   belongs_to :brand
@@ -9,6 +9,9 @@ class Car < ApplicationRecord
   has_one :car_profile, dependent: :destroy
 
   before_create :build_default_car_profile
+  after_create :mark_as_pending
+
+  validates_presence_of :brand, :price_daily, :price_hourly, :price_weekly, :price_monthly
 
   default_scope -> { order('cars.created_at DESC') }
 
@@ -18,6 +21,10 @@ class Car < ApplicationRecord
 
   def available?
     self.status == "available"
+  end
+
+  def mark_as_pending
+    self.update_attribute(:status, "pending")
   end
 
   private
