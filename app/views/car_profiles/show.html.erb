@@ -9,7 +9,7 @@
           <div class="card">
             <h5 class="card-header">Road Tax Expired Date</h5>
             <div class="card-body">
-              <p class="card-text"><%= @car_profile.road_tax_expired_date.strftime("%d %B %Y") %></p>
+              <p class="card-text"><%= @car_profile.road_tax_expired_date.nil? ? "N/A" : @car_profile.road_tax_expired_date.strftime("%d %B %Y") %></p>
             </div>
           </div>
         </div>
@@ -17,7 +17,7 @@
           <div class="card">
             <h5 class="card-header">Plate Number</h5>
             <div class="card-body">
-              <p class="card-text"><%= @car_profile.plate_number %></p>
+              <p class="card-text text-uppercase"><%= @car_profile.plate_number.nil? ? "N/A" : @car_profile.plate_number %></p>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
           <div class="card">
             <h5 class="card-header">Chasis Number</h5>
             <div class="card-body">
-              <p class="card-text"><%= @car_profile.chasis_number %></p>
+              <p class="card-text text-uppercase"><%= @car_profile.chasis_number.nil? ? "N/A" : @car_profile.chasis_number %></p>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="card">
             <h5 class="card-header">Last Service</h5>
             <div class="card-body">
-              <p class="card-text"><%= @car_profile.last_service.strftime("%d %B %Y") %></p>
+              <p class="card-text"><%= @car_profile.last_service.nil? ? "N/A" : @car_profile.last_service.strftime("%d %B %Y") %></p>
             </div>
           </div>
         </div>

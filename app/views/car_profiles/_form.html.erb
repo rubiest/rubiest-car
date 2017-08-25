@@ -26,12 +26,12 @@
 
   <div class="form-group">
     <strong><%= form.label :chasis_number, class: "form-control-label" %></strong>
-    <%= form.text_field :plate_number, id: :car_profile_plate_number, class: "form-control" %>
+    <%= form.text_field :chasis_number, id: :car_profile_chasis_number, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <strong><%= form.label :last_service, class: "form-control-label" %></strong>
-    <%= form.text_field :last_service, id: :car_profile_last_service, class: "form-control" %>
+    <%= form.date_field :last_service, id: :car_profile_last_service, class: "form-control" %>
   </div>
 
   <div class="actions">

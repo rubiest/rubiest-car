@@ -23,6 +23,9 @@ class CarsController < ApplicationController
   end
 
   def show
+    puts "****************************************"
+    Rails.logger.info "#{@car_profile.inspect}"
+    puts "****************************************"
   end
 
   def edit

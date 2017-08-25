@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <th scope="row">Logo</th>
-      <td><%= @company_profile.c_profile_picture.nil? ? "N/A" : image_tag(@company_profile.c_profile_picture_url(:thumbnail), class: "rounded") %></td>
+      <td><%= @company_profile.c_profile_picture.blank? ? "N/A" : image_tag(@company_profile.c_profile_picture_url(:thumbnail), class: "rounded") %></td>
     </tr>
     <tr>
       <th scope="row">Name</th>

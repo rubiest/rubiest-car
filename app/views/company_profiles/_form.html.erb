@@ -49,20 +49,16 @@
         <th scope="row">Logo</th>
         <td>
           <div class="form-group">
-
-            <!-- <div class="col-md-10"> -->
-              <p>
-                <% if @company_profile.try(:c_profile_picture?) %>
-                  <%= image_tag(@company_profile.c_profile_picture_url(:thumbnail), class: "img-responsive") %>
-                <% end %>
-              </p>
-              <%= form.file_field :c_profile_picture, :class => "form-control" %>
-              <%= form.hidden_field :c_profile_picture_cache %>
-              <span class="help-block">
-                For best result, please upload only 200px * 200px
-              </span>
-            <!-- </div> -->
-
+            <p>
+              <% if @company_profile.try(:c_profile_picture?) %>
+                <%= image_tag(@company_profile.c_profile_picture_url(:thumbnail), class: "img-responsive") %>
+              <% end %>
+            </p>
+            <%= form.file_field :c_profile_picture, :class => "form-control" %>
+            <%= form.hidden_field :c_profile_picture_cache %>
+            <span class="help-block">
+              For best result, please upload only 200px * 200px
+            </span>
           </div>
         </td>
       </tr>

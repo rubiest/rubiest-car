@@ -34,6 +34,10 @@ class CompanyProfilePictureUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [200, 200]
   end
 
+  version :thumbnail2 do
+    process :resize_to_fill => [328, 328]
+  end
+
   version :thumb do
     process :resize_to_fill => [50, 50]
   end

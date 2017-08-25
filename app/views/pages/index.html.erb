@@ -2,11 +2,16 @@
   <% @company_profiles.each do |cp| %>
   <div class="col-sm-3">
     <div class="card">
+      <% if cp.c_profile_picture? %>
+        <%= image_tag(cp.c_profile_picture_url(:thumbnail2), class: "card-img-top") %>
+      <% end %>
       <div class="card-body">
         <h4 class="card-title"><%= cp.c_name %></h4>
         <h6 class="card-subtitle mb-2 text-muted"><%= cp.pic_fullname.blank? ? cp.user.username : cp.pic_fullname %></h6>
         <p class="card-text"><%= cp.c_city.blank? || cp.c_state.blank? ? "Everywhere" : cp.location %></p>
-        <%= link_to "Check Garage", garage_show_path(cp), class: "card-link" %>
+        <%= link_to garage_show_path(cp), class: "card-link" do %>
+          Check Garage <i class="fa fa-angle-double-right"></i>
+        <% end %>
       </div>
     </div>
   </div>
